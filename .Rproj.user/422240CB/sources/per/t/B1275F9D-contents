@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs   # <--- ISSO É O MAIS IMPORTANTE
+
+website:
+  title: "Meu Portfólio"
+  navbar:
+    background: "#0d2c4d"  # Azul Navy Escuro (Pode trocar por 'primary' ou 'dark')
+    foreground: light      # Texto branco para dar contraste
+    right:
+      - text: "Home"
+        href: index.qmd
+      - text: "Projetos"      # <--- NOVO
+        href: projects.qmd    # <--- NOVO
+      - text: "CV"            # <--- NOVO
+        href: cv.qmd          # <--- NOVO  
+      - icon: github
+        href: https://github.com/
+      - icon: linkedin
+        href: https://linkedin.com/
+  page-footer: 
+    right: "Desenvolvido com Quarto"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

@@ -1,0 +1,30 @@
+---
+title: "Bem-vindo!"
+image: profile.jpg
+toc: false
+about:
+  template: jolla
+  image-shape: round
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/leonardo-reis-jatai-35945a159 
+    - icon: github
+      text: Github
+      href: https://github.com/L3Reis
+    - icon: envelope
+      text: Email
+      href: mailto:leonardo.reis.jatai.ismart@gmail.com
+---
+
+## Eu sou o **Leonardo Reis!**
+
+Sou mestrando em Economia na UFABC e Aluno Visitante da EESP-FGV com foco na intersecção entre **Macroeconomia** e **Finanças**.
+
+Meu objetivo é aprender a implementar as técnicas mais modernas de Econometria, Macroeconometria Bayesiana e Machine Learning para estudar diversos temas como: Conjuntura Econômica, *Asset Pricing*, Previsão de Volatilidade, etc
+
+Neste site-portfólio, meu objetivo é documentar meus estudos e avanços nos diferentes projetos que pretendo executar.
+
+Se por acaso quiser contribuir com meus estudos, sinta-se livre para me contatar pelo **Linkedin**!
+
+[Ver Projetos →](projects.qmd){.btn .btn-outline-primary .btn-lg role="button"}
