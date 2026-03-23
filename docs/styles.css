@@ -1,1 +1,5 @@
 /* css styles */
+/* Justificar o texto de todos os parágrafos do site */
+p {
+  text-align: justify;
+}

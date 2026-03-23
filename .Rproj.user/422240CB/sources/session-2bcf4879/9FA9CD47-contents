@@ -1,0 +1,29 @@
+---
+title: "Sensibilidade do Mercado de Ações à Expectativa de Inflação"
+author: "Leonardo Reis"
+date: "2026-03-23"
+categories: [Asset Pricing, Macrofinance]
+image: "tabela_principal.png"
+---
+
+# Informações sobre o projeto
+
+Esse artigo compreende à minha entrega final da disciplina *Empirical Asset Pricing* ministrada por Marcelo Fernandes na EESP/FGV. Abaixo segue o resumo, assim como alguns dos principais resultados. O artigo pode ser lido na íntegra no botão abaixo.
+
+[Leia o Artigo Completo!](Expectativas_Inflacao_Sensibilidade_Mercado_Acionario_Brasileiro.pdf){.btn .btn-primary}
+
+## Resumo do Artigo
+
+Este artigo investiga a sensibilidade do mercado acionário brasileiro às expectativas de inflação, adaptando a metodologia de Chaudhary e Marrow (2022). Utilizando dados diários de inflação implícita e portfólios no período de 2010 a 2022, documenta-se uma relação diametralmente oposta à evidência norte-americana. Os resultados indicam que um aumento de 1 ponto-base nas expectativas está associado a uma queda de 3,2 pontos-base no excesso de retorno do mercado. Ao controlar pela taxa de juros real, demonstra-se que o canal de desconto é significativo, embora o conteúdo informacional inflacionário permaneça relevante. Adicionalmente, identifica-se reação do mercado exclusivamente nos dias de anúncio do índice oficial (IPCA), sendo estatisticamente nula nas prévias (IPCA-15). Setorialmente, o impacto negativo concentra-se em segmentos dependentes da demanda interna, enquanto setores exportadores apresentam maior resiliência aos choques. Em conjunto, os resultados sugerem que, no contexto brasileiro, choques nas expectativas de inflação são interpretados como sinal de deterioração macroeconômica.
+
+### Exposição Diária das Ações Brasileiras às Expectativas de Inflação (2010-2022)
+
+![](tabela_principal.png){width="80%"}
+
+### Reação do Retorno das Ações a Choques de Inflação: Decomposição por tipo de anúncio
+
+![](tabela_2.png){width="80%"}
+
+### Sensibilidade Setorial à Inflação (Dias de IPCA)
+
+![](setorial.png){width="80%"}

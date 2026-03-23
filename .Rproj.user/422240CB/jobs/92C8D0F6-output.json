@@ -1,0 +1,7 @@
+[1,"==> quarto preview projects.qmd --to html --no-watch-inputs --no-browse\n\n"]
+[1,"pandoc \n  to: html\n  output-file: projects.html\n  standalone: true\n  title-prefix: Meu Portfólio\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  css:\n    - styles.css\n  toc: true\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  theme: cosmo\n  title: Projetos\n  subtitle: Modelagem Macroeconômica e Financeira\n  listing:\n    contents: posts\n    sort: date desc\n    type: default\n    categories: true\n    sort-ui: false\n    filter-ui: false\n  page-layout: full\n  title-block-banner: true\n  \n"]
+[1,"Output created: docs\\projects.html\n\n"]
+[1,"Preparing to preview\n"]
+[1,"\nWatching files for changes\n"]
+[1,"Browse at http://localhost:7821/projects.html\n"]
+[1,"GET: /projects.html\n"]
