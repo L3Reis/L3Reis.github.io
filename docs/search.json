@@ -4,7 +4,7 @@
     "href": "projects.html",
     "title": "Projetos",
     "section": "",
-    "text": "Aqui estão os projetos que estou trabalhando no momento/concluídos\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSensibilidade do Mercado de Ações à Expectativa de Inflação\n\n\n\n\n\n\nAsset Pricing\n\n\nMacrofinance\n\n\n\n\n\n\n\n\n\nMar 23, 2026\n\n\nLeonardo Reis\n\n\n\n\n\n\nNo matching items"
+    "text": "Aqui estão os projetos que estou trabalhando no momento/concluídos\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChoques de Expectativa de Inflação: Uma Análise VAR da Reação Macrofinanceira aos Anúncios do IPCA\n\n\n\nMacrofinance\n\n\n\n\n\n\n\n\n\nMar 25, 2026\n\n\nLeonardo Reis\n\n\n\n\n\n\n\n\n\n\n\n\nSensibilidade do Mercado de Ações à Expectativa de Inflação\n\n\n\nAsset Pricing\n\nMacrofinance\n\n\n\n\n\n\n\n\n\nMar 23, 2026\n\n\nLeonardo Reis\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -75,5 +75,19 @@
     "title": "Sensibilidade do Mercado de Ações à Expectativa de Inflação",
     "section": "",
     "text": "Este artigo investiga a sensibilidade do mercado acionário brasileiro às expectativas de inflação, adaptando a metodologia de Chaudhary e Marrow (2022). Utilizando dados diários de inflação implícita e portfólios no período de 2010 a 2022, documenta-se uma relação diametralmente oposta à evidência norte-americana. Os resultados indicam que um aumento de 1 ponto-base nas expectativas está associado a uma queda de 3,2 pontos-base no excesso de retorno do mercado. Ao controlar pela taxa de juros real, demonstra-se que o canal de desconto é significativo, embora o conteúdo informacional inflacionário permaneça relevante. Adicionalmente, identifica-se reação do mercado exclusivamente nos dias de anúncio do índice oficial (IPCA), sendo estatisticamente nula nas prévias (IPCA-15). Setorialmente, o impacto negativo concentra-se em segmentos dependentes da demanda interna, enquanto setores exportadores apresentam maior resiliência aos choques. Em conjunto, os resultados sugerem que, no contexto brasileiro, choques nas expectativas de inflação são interpretados como sinal de deterioração macroeconômica."
+  },
+  {
+    "objectID": "posts/var_expectativa_inflacao/index.html",
+    "href": "posts/var_expectativa_inflacao/index.html",
+    "title": "Choques de Expectativa de Inflação: Uma Análise VAR da Reação Macrofinanceira aos Anúncios do IPCA",
+    "section": "",
+    "text": "Esse trabalho apresenta minha entrega final para a disciplina de Séries Temporais Aplicadas à Macroeconomia e Finanças, ministrada pelo professor Guilherme Cagliari. A seguir apresento o resumo, assim como os principais resultados encontrados.\nÉ possível ler o artigo completo no botão abaixo:\nLeia o Artigo Completo!\n\n\nEste trabalho investiga como choques de expectativa de inflação afetam as variáveis nominais e reais da economia brasileira. Para esse objetivo, foi adaptada ao contexto brasileiro a metodologia de criação da variável de expectativa utilizando dados diários proposta por Chaudhary e Marrow (2022). Dessa forma, foi estimado um Vetor Autoregressivo (VAR) cujas funções impulso-resposta retratam a trajetória das variáveis macroeconômicas e financeiras ao choque condicionado aos dias de anúncio do IPCA. O resultado aponta uma reação contracionista, em que se observa queda do produto doméstico e alta persistência inflacionária, o que contrasta com o cenário americano e é compatível com a hipótese de desancoragem das expectativas. Adicionalmente, a Decomposição da Variância do Erro de Previsão (FEVD) aponta uma contribuição relevante das expectativas para o comportamento das variáveis nominais no longo prazo. Palavras-chave: Expectativa de Inflação. IPCA."
+  },
+  {
+    "objectID": "posts/var_expectativa_inflacao/index.html#resumo-do-artigo",
+    "href": "posts/var_expectativa_inflacao/index.html#resumo-do-artigo",
+    "title": "Choques de Expectativa de Inflação: Uma Análise VAR da Reação Macrofinanceira aos Anúncios do IPCA",
+    "section": "",
+    "text": "Este trabalho investiga como choques de expectativa de inflação afetam as variáveis nominais e reais da economia brasileira. Para esse objetivo, foi adaptada ao contexto brasileiro a metodologia de criação da variável de expectativa utilizando dados diários proposta por Chaudhary e Marrow (2022). Dessa forma, foi estimado um Vetor Autoregressivo (VAR) cujas funções impulso-resposta retratam a trajetória das variáveis macroeconômicas e financeiras ao choque condicionado aos dias de anúncio do IPCA. O resultado aponta uma reação contracionista, em que se observa queda do produto doméstico e alta persistência inflacionária, o que contrasta com o cenário americano e é compatível com a hipótese de desancoragem das expectativas. Adicionalmente, a Decomposição da Variância do Erro de Previsão (FEVD) aponta uma contribuição relevante das expectativas para o comportamento das variáveis nominais no longo prazo. Palavras-chave: Expectativa de Inflação. IPCA."
   }
 ]

@@ -1,0 +1,23 @@
+---
+title: "Choques de Expectativa de Inflação: Uma Análise VAR da Reação Macrofinanceira aos Anúncios do IPCA"
+author: "Leonardo Reis"
+date: "2026-03-25"
+categories: [Macrofinance]
+image: "irf.jpg"
+---
+
+# Informações do Projeto
+
+Esse trabalho apresenta minha entrega final para a disciplina de Séries Temporais Aplicadas à Macroeconomia e Finanças, ministrada pelo professor Guilherme Cagliari. A seguir apresento o resumo, assim como os principais resultados encontrados.
+
+É possível ler o artigo completo no botão abaixo:
+
+[Leia o Artigo Completo!](reacao_macro_expectativas_inflacao.pdf){.btn .btn-primary}
+
+## Resumo do Artigo
+
+Este trabalho investiga como choques de expectativa de inflação afetam as variáveis nominais e reais da economia brasileira. Para esse objetivo, foi adaptada ao contexto brasileiro a metodologia de criação da variável de expectativa utilizando dados diários proposta por Chaudhary e Marrow (2022). Dessa forma, foi estimado um Vetor Autoregressivo (VAR) cujas funções impulso-resposta retratam a trajetória das variáveis macroeconômicas e financeiras ao choque condicionado aos dias de anúncio do IPCA. O resultado aponta uma reação contracionista, em que se observa queda do produto doméstico e alta persistência inflacionária, o que contrasta com o cenário americano e é compatível com a hipótese de desancoragem das expectativas. Adicionalmente, a Decomposição da Variância do Erro de Previsão (FEVD) aponta uma contribuição relevante das expectativas para o comportamento das variáveis nominais no longo prazo. Palavras-chave: Expectativa de Inflação. IPCA.
+
+### Séries Temporais utilizadas no VAR (2012-2021)
+
+![](series_var.jpg){width="80%"}
