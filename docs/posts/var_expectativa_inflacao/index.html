@@ -125,8 +125,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#informações-do-projeto" id="toc-informações-do-projeto" class="nav-link active" data-scroll-target="#informações-do-projeto">Informações do Projeto</a>
+  <ul class="collapse">
+  <li><a href="#resumo-do-artigo" id="toc-resumo-do-artigo" class="nav-link" data-scroll-target="#resumo-do-artigo">Resumo do Artigo</a>
+  <ul class="collapse">
+  <li><a href="#séries-temporais-utilizadas-no-var-2012-2021" id="toc-séries-temporais-utilizadas-no-var-2012-2021" class="nav-link" data-scroll-target="#séries-temporais-utilizadas-no-var-2012-2021">Séries Temporais utilizadas no VAR (2012-2021)</a></li>
+  <li><a href="#funções-impulso-resposta-acumuladas-choque-em-expectativas" id="toc-funções-impulso-resposta-acumuladas-choque-em-expectativas" class="nav-link" data-scroll-target="#funções-impulso-resposta-acumuladas-choque-em-expectativas">Funções Impulso-Resposta Acumuladas (Choque em Expectativas)</a></li>
+  <li><a href="#decomposição-da-variância-fevd" id="toc-decomposição-da-variância-fevd" class="nav-link" data-scroll-target="#decomposição-da-variância-fevd">Decomposição da Variância (FEVD)</a></li>
+  </ul></li>
+  <li><a href="#conclusões" id="toc-conclusões" class="nav-link" data-scroll-target="#conclusões">Conclusões</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -165,8 +180,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="informações-do-projeto" class="level1">
+<h1>Informações do Projeto</h1>
+<p>Esse trabalho apresenta minha entrega final para a disciplina de Séries Temporais Aplicadas à Macroeconomia e Finanças, ministrada pelo professor Guilherme Cagliari. A seguir apresento o resumo, gráficos dos principais resultados encontrados e conclusões.</p>
+<p>É possível ler o artigo completo no botão abaixo:</p>
+<p><a href="reacao_macro_expectativas_inflacao.pdf" class="btn btn-primary">Leia o Artigo Completo!</a></p>
+<section id="resumo-do-artigo" class="level2">
+<h2 class="anchored" data-anchor-id="resumo-do-artigo">Resumo do Artigo</h2>
+<p>Este trabalho investiga como choques de expectativa de inflação afetam as variáveis nominais e reais da economia brasileira. Para esse objetivo, foi adaptada ao contexto brasileiro a metodologia de criação da variável de expectativa utilizando dados diários proposta por Chaudhary e Marrow (2022). Dessa forma, foi estimado um Vetor Autoregressivo (VAR) cujas funções impulso-resposta retratam a trajetória das variáveis macroeconômicas e financeiras ao choque condicionado aos dias de anúncio do IPCA. O resultado aponta uma reação contracionista, em que se observa queda do produto doméstico e alta persistência inflacionária, o que contrasta com o cenário americano e é compatível com a hipótese de desancoragem das expectativas. Adicionalmente, a Decomposição da Variância do Erro de Previsão (FEVD) aponta uma contribuição relevante das expectativas para o comportamento das variáveis nominais no longo prazo. Palavras-chave: Expectativa de Inflação. IPCA.</p>
+<section id="séries-temporais-utilizadas-no-var-2012-2021" class="level3">
+<h3 class="anchored" data-anchor-id="séries-temporais-utilizadas-no-var-2012-2021">Séries Temporais utilizadas no VAR (2012-2021)</h3>
+<p><img src="series_var.jpg" class="img-fluid" style="width:80.0%"></p>
+</section>
+<section id="funções-impulso-resposta-acumuladas-choque-em-expectativas" class="level3">
+<h3 class="anchored" data-anchor-id="funções-impulso-resposta-acumuladas-choque-em-expectativas">Funções Impulso-Resposta Acumuladas (Choque em Expectativas)</h3>
+<p><img src="irf.jpg" class="img-fluid" style="width:80.0%"></p>
+</section>
+<section id="decomposição-da-variância-fevd" class="level3">
+<h3 class="anchored" data-anchor-id="decomposição-da-variância-fevd">Decomposição da Variância (FEVD)</h3>
+<p><img src="fevd.jpg" class="img-fluid" style="width:80.0%"></p>
+</section>
+</section>
+<section id="conclusões" class="level2">
+<h2 class="anchored" data-anchor-id="conclusões">Conclusões</h2>
+<p>Este trabalho tinha como objetivo compreender como as variáveis macroeconômicas e financeiras reagem a um choque de expectativa de inflação, atrelado aos anúncios do IPCA. O resultado contrasta com o observado por Chaudhary e Marrow (2022), pois, enquanto no cenário norte-americano o choque se traduz em uma trajetória positiva da economia, no cenário brasileiro o choque se traduz em uma dinâmica das variáveis que resultam em uma trajetória contracionista.</p>
+<p>Os resultados apontam que um choque na expectativa de inflação está relacionado a um aumento da inflação, com elevada inércia; um aumento defasado da taxa de juros; um pico que rapidamente converge no caso do índice de volatilidade e um declínio em nível da atividade econômica que se mantém no horizonte observado. Ademais, através da decomposição da variância, ficou claro o papel das expectativas na influência do movimento da taxa de juros e da inflação ao longo do tempo.</p>
+<p>O trabalho possui diversas limitações, que podem ser aprimoradas em esforços posteriores: Primeiro, a amostra de 2012 a 2021, escolhida devido à disponibilidade de dados, pode ser considerada curta e é um período conturbado para a história econômica brasileira, marcado por crises, o que pode distorcer a análise dos resultados, mesmo com os tratamentos realizados. É necessária a busca por uma forma de mitigar essa restrição de disponibilidade de dados.</p>
+<p>Segundo, a inflação implícita, proxy da expectativa de inflação utilizada neste trabalho, não é uma medida isolada de surpresa, dado que esta carrega prêmios de risco e liquidez, o que pode contaminar a análise dos resultados. Ademais, a agregação mensal dessa variável necessita de maior robustez, provavelmente comparando com os resultados de choques utilizando a expectativa de inflação do Boletim FOCUS.</p>
+<p>Por fim, para trabalhos futuros, seria interessante aprofundar mais a hipótese de desancoragem de expectativas levantada durante o texto e entender melhor como os investidores interpretam a carga informacional de um choque de expectativa e os motivos por trás de seus comportamentos.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
