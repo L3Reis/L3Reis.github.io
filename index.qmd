@@ -1,6 +1,6 @@
 ---
 title: "Bem-vindo!"
-image: profile.jpg
+image: perfil.jpeg
 toc: false
 about:
   template: jolla
