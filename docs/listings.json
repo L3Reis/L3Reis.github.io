@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/receitas/index.html",
+    "items": [
+      "/receitas/capm/index.html"
+    ]
+  },
+  {
     "listing": "/projects.html",
     "items": [
       "/posts/var_expectativa_inflacao/index.html",

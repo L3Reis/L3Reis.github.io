@@ -1,20 +1,23 @@
 {
-  "index.qmd": {
-    "index.html": "97e2ded1"
+  "receitas/index.qmd": {
+    "index.html": "e6ccde87"
   },
   "about.qmd": {
-    "about.html": "9ef77a32"
-  },
-  "projects.qmd": {
-    "projects.html": "34e986c9"
+    "about.html": "fc305578"
   },
   "cv.qmd": {
-    "cv.html": "fa504641"
+    "cv.html": "019f6770"
   },
   "posts/asset_expectativa_inflacao/index.qmd": {
-    "index.html": "fa079539"
+    "index.html": "4667575c"
   },
   "posts/var_expectativa_inflacao/index.qmd": {
-    "index.html": "3367dcf2"
+    "index.html": "cd3da7e5"
+  },
+  "projects.qmd": {
+    "projects.html": "6c0133f0"
+  },
+  "receitas/capm/index.qmd": {
+    "index.html": "2726d89c"
   }
 }

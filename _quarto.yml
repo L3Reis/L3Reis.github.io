@@ -14,6 +14,8 @@ website:
         href: projects.qmd    # <--- NOVO
       - text: "CV"            # <--- NOVO
         href: cv.qmd          # <--- NOVO  
+      - text: "Receitas"       # <--- ADICIONE ESTA LINHA
+        href: receitas/index.qmd     # <--- ADICIONE ESTA LINHA  
       - icon: github
         href: https://github.com/
       - icon: linkedin

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-08-14">
+<meta name="description" content="Cálculo do Risco Sistemático (Beta) via Covariância e OLS.">
 
-<title>Currículo – Meu Portfólio</title>
+<title>Estimação do CAPM (Market Model) – Meu Portfólio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f2092aab30f815c81761df39981e7f41.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-f2092aab30f815c81761df39981e7f41.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,8 +106,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -80,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Meu Portfólio</span>
     </a>
   </div>
@@ -91,19 +157,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projetos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./cv.html" aria-current="page"> 
+    <a class="nav-link" href="../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./receitas/index.html"> 
+    <a class="nav-link" href="../../receitas/index.html"> 
 <span class="menu-text">Receitas</span></a>
   </li>  
   <li class="nav-item compact">
@@ -132,14 +198,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#formação-acadêmica" id="toc-formação-acadêmica" class="nav-link active" data-scroll-target="#formação-acadêmica">Formação Acadêmica</a></li>
-  <li><a href="#experiência-voltada-à-academia" id="toc-experiência-voltada-à-academia" class="nav-link" data-scroll-target="#experiência-voltada-à-academia">Experiência voltada à Academia</a></li>
-  <li><a href="#experiência-profissional" id="toc-experiência-profissional" class="nav-link" data-scroll-target="#experiência-profissional">Experiência Profissional</a>
-  <ul class="collapse">
-  <li><a href="#itaú-bba" id="toc-itaú-bba" class="nav-link" data-scroll-target="#itaú-bba"><strong>Itaú BBA</strong></a></li>
-  <li><a href="#mufg-bank-antigo-banco-de-tóquio" id="toc-mufg-bank-antigo-banco-de-tóquio" class="nav-link" data-scroll-target="#mufg-bank-antigo-banco-de-tóquio"><strong>MUFG Bank (Antigo Banco de Tóquio)</strong></a></li>
-  </ul></li>
-  <li><a href="#idiomas" id="toc-idiomas" class="nav-link" data-scroll-target="#idiomas">Idiomas</a></li>
+  <li><a href="#premissas-do-modelo" id="toc-premissas-do-modelo" class="nav-link active" data-scroll-target="#premissas-do-modelo">Premissas do Modelo</a></li>
   </ul>
 </nav>
     </div>
@@ -148,14 +207,30 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Currículo</h1>
-</div>
+<h1 class="title">Estimação do CAPM (Market Model)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Finanças Quantitativas</div>
+    <div class="quarto-category">Asset Pricing</div>
+    <div class="quarto-category">Python</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Cálculo do Risco Sistemático (Beta) via Covariância e OLS.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 14, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -165,68 +240,107 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="formação-acadêmica" class="level2">
-<h2 class="anchored" data-anchor-id="formação-acadêmica">Formação Acadêmica</h2>
-<p><strong>Mestrado em Economia</strong> | UFABC <em>2025 - Presente</em> - Foco: Macroeconomia e Finanças - Bolsista UFABC</p>
-<p>Disciplinas cursadas:</p>
+<section id="premissas-do-modelo" class="level2">
+<h2 class="anchored" data-anchor-id="premissas-do-modelo">Premissas do Modelo</h2>
 <ul>
-<li>Séries Temporais para Macroeconomia e Finanças</li>
-<li>Econometria (Foco em Dados em Painel)</li>
-<li>Macroeconomia</li>
-<li>Técnicas em Pesquisa</li>
-<li>Microeconomia</li>
-<li>Pluralismo em Economia</li>
+<li>Trata-se de um CAPM simplificado (Market Model), assumindo <span class="math inline">\(R_f = 0\)</span>;</li>
+<li>Os preços são ajustados por proventos (<code>auto_adjust=True</code>);</li>
+<li>Os retornos são discretos e mensais;</li>
+<li>O portfólio possui pesos iguais (Equal-Weighted);</li>
+<li>Há rebalanceamento mensal implícito na alocação;</li>
+<li>O <span class="math inline">\(\beta\)</span> é calculado por covariância e confirmado por regressão linear (OLS).</li>
 </ul>
-<p><strong>Aluno Visitante</strong> | EESP-FGV <em>2025 - Presente</em></p>
-<p>Disciplinas cursadas (em curso):</p>
-<ul>
-<li>Asset Pricing<br>
-</li>
-<li>Empirical Asset Pricing</li>
-<li>Monetary Policy Models</li>
-<li>Applied Macroeconomics to the Financial Market</li>
-<li>Bayesian Macroeconometrics</li>
-</ul>
-<p><strong>Bacharelado em Ciências Econômicas</strong> | PUC-SP <em>2020 - 2024</em></p>
-</section>
-<section id="experiência-voltada-à-academia" class="level2">
-<h2 class="anchored" data-anchor-id="experiência-voltada-à-academia">Experiência voltada à Academia</h2>
-<p><strong>Professor Assistente</strong> | UFABC</p>
-<p><em>Jan 2026 - Presente</em></p>
-<ul>
-<li>Auxílio nas atividades relacionadas à disciplina de Econometria III – Séries Temporais, ministrada para graduação.</li>
-</ul>
-</section>
-<section id="experiência-profissional" class="level2">
-<h2 class="anchored" data-anchor-id="experiência-profissional">Experiência Profissional</h2>
-<section id="itaú-bba" class="level3">
-<h3 class="anchored" data-anchor-id="itaú-bba"><strong>Itaú BBA</strong></h3>
-<p><em>Jun 2022 - Abr 2024</em></p>
-<p><strong>Cash Management | Área Tech – Comercial</strong></p>
-<ul>
-<li>Atividade Principal : Gerenciamento de carteira de clientes do ecossistema CUBO com atuação comercial, gerando novos negócios dentro do escopo de produtos Cash.</li>
-<li>Outras atividades: Análise de dados para planejamento de toda a área, auxiliando os demais officers.</li>
-</ul>
-<p><strong>Cash Management | Antigo CIB – Comercial</strong></p>
-<ul>
-<li>Treinamento comercial (incluindo exposição aos clientes e gerenciamento de demandas operacionais) e auxílio ao gerente da área com o planejamento e comunicação com a diretoria.</li>
-</ul>
-</section>
-<section id="mufg-bank-antigo-banco-de-tóquio" class="level3">
-<h3 class="anchored" data-anchor-id="mufg-bank-antigo-banco-de-tóquio"><strong>MUFG Bank (Antigo Banco de Tóquio)</strong></h3>
-<p><em>Jan 2022 - Jul 2022</em></p>
-<p><strong>Japanese Corporate Investment Banking</strong></p>
-<ul>
-<li>Auxílio comercial com as operações padrão de <em>Commercial Banking</em></li>
-</ul>
-</section>
-</section>
-<section id="idiomas" class="level2">
-<h2 class="anchored" data-anchor-id="idiomas">Idiomas</h2>
-<ul>
-<li>Português (Nativo)</li>
-<li>Inglês (Avançado)</li>
-</ul>
+<div id="5aca4672" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#* CAPM SIMPLES</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pacotes</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Especifique os ativos/portfólios, benchmark e período avaliado:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>ativos <span class="op">=</span> [<span class="st">"PETR4.SA"</span>, <span class="st">'ABEV3.SA'</span>, <span class="st">'MGLU3.SA'</span>, <span class="st">'ITSA4.SA'</span>]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>benchmark <span class="op">=</span> <span class="st">"^BVSP"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>inicio <span class="op">=</span> <span class="st">"2020-12-01"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>final <span class="op">=</span> <span class="st">"2025-12-31"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>tickers <span class="op">=</span> ativos <span class="op">+</span> [benchmark]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(tickers,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                 start<span class="op">=</span> inicio,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                 end<span class="op">=</span> final,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                 progress<span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>precos <span class="op">=</span> df[<span class="st">'Close'</span>]</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>retornos <span class="op">=</span> precos.resample(<span class="st">"ME"</span>).last().pct_change().dropna()</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>retornos.head()</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Portfólio com pesos iguais</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>pesos <span class="op">=</span> pd.Series( <span class="dv">1</span> <span class="op">/</span> <span class="bu">len</span>(ativos), index<span class="op">=</span> ativos)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>retornos[<span class="st">'portfolio'</span>] <span class="op">=</span> retornos[ativos].dot(pesos) <span class="co"># obs: função dot() calcula o produto escalar</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Separação estrita</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>mercado <span class="op">=</span> retornos[benchmark]</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>portfolio <span class="op">=</span> retornos[<span class="st">"portfolio"</span>]</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculando o Beta utilizando a abordagem da covariância</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>covariancia <span class="op">=</span> portfolio.cov(mercado)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>benchmark_variancia <span class="op">=</span> mercado.var()</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>beta_cov <span class="op">=</span> covariancia <span class="op">/</span> benchmark_variancia</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>beta_cov</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Através da regressão</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> portfolio</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sm.add_constant(mercado) <span class="co"># importante adicionar o intercepto</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelo</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>capm <span class="op">=</span> sm.OLS(y,x).fit()</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(capm.summary())</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> capm.params[<span class="st">"const"</span>]</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>beta_ols <span class="op">=</span> capm.params[benchmark]</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Alpha mensal: </span><span class="sc">{</span>alpha<span class="sc">:.4%}</span><span class="ss">"</span>)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Beta do portfólio: </span><span class="sc">{</span>beta_ols<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              portfolio   R-squared:                       0.687
+Model:                            OLS   Adj. R-squared:                  0.681
+Method:                 Least Squares   F-statistic:                     127.1
+Date:                Sat, 15 Aug 2026   Prob (F-statistic):           3.01e-16
+Time:                        00:23:54   Log-Likelihood:                 103.01
+No. Observations:                  60   AIC:                            -202.0
+Df Residuals:                      58   BIC:                            -197.8
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.0053      0.006     -0.917      0.363      -0.017       0.006
+^BVSP          1.3377      0.119     11.275      0.000       1.100       1.575
+==============================================================================
+Omnibus:                       15.997   Durbin-Watson:                   1.687
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               19.880
+Skew:                           1.072   Prob(JB):                     4.82e-05
+Kurtosis:                       4.831   Cond. No.                         20.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+Alpha mensal: -0.5280%
+Beta do portfólio: 1.3377</code></pre>
+</div>
+</div>
 
 
 </section>

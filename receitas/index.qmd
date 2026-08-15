@@ -1,0 +1,11 @@
+---
+title: "Receitas"
+listing:
+  contents: "."
+  type: table           # O formato 'table' fica perfeito para visualização técnica
+  categories: true      # Permite filtrar por tags (ex: Python, Asset Pricing)
+  sort: "date desc"
+  fields: [date, title, description, categories]
+---
+
+Aqui estão códigos consolidados e reprodutíveis (espero) de modelos/ rotinas voltadas para macro e quant finance. O objetivo é me desafiar, estudando e catalogando modelos úteis e eficientes. Caso você veja aviste algum erro ou veja o que eu estou fazendo e queira sugerir algo para eu estudar, fique a vontade para me contatar!
