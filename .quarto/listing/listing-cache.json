@@ -1,10 +1,10 @@
 {
   "listingMap": {
-    "receitas\\index.qmd": [
-      "."
-    ],
     "projects.qmd": [
       "posts"
+    ],
+    "receitas\\index.qmd": [
+      "."
     ]
   }
 }

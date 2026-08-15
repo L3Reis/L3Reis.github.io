@@ -10,6 +10,8 @@ image: "tabela_principal.png"
 
 Esse artigo compreende à minha entrega final da disciplina *Empirical Asset Pricing* ministrada por Marcelo Fernandes na EESP/FGV. Abaixo segue o resumo, assim como alguns dos principais resultados. O artigo pode ser lido na íntegra no botão abaixo.
 
+O artigo foi aceito para apresentação oral no XXVI Encontro Brasileiro de Finanças (https://doity.com.br/anais/26ebfin/trabalho/515322).
+
 [Leia o Artigo Completo!](Expectativas_Inflacao_Sensibilidade_Mercado_Acionario_Brasileiro.pdf){.btn .btn-primary}
 
 ## Resumo do Artigo
